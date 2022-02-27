@@ -10,6 +10,15 @@ namespace GraphAlgorithmes
     {
         static void Main(string[] args)
         {
+            MyGraph graph = new MyGraph();
+            graph.AddNode("A");
+            graph.AddNode("B");
+            graph.AddNode("C");
+            graph.AddEdge("A", "B");
+            graph.AddEdge("A", "C");
+            graph.Print();
+
+            Console.ReadKey();
         }
     }
 }
