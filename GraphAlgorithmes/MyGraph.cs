@@ -23,8 +23,10 @@ namespace GraphAlgorithmes
             }
         }
 
+        //array (hash table) to implement the nodes:
         private Dictionary<string, Node> nodes = new Dictionary<string, Node>();
-        //array of Lists to implement the edges:
+
+        //array (hash table) of Lists with connected nodes to implement the edges:
         private Dictionary<Node, List<Node>> adjacencyList = new Dictionary<Node, List<Node>>();
 
         public void AddNode(string label)
@@ -42,7 +44,8 @@ namespace GraphAlgorithmes
 
         public void AddEdge(string from, string to)
         {
-            var fromNode = nodes[from];
+            var fromNode = nodes[from]; //the node in the nodes hash map
+
             if (fromNode == null)
                 throw new Exception("Illegal Argument");
 
@@ -51,17 +54,44 @@ namespace GraphAlgorithmes
                 throw new Exception("Illegal Argument");
 
             adjacencyList[fromNode].Add(toNode);
-            adjacencyList[toNode].Add(fromNode); //to create unoriented graph
+            // adjacencyList[toNode].Add(fromNode); //to create unoriented graph
         }
 
         public void Print()
         {
             foreach (var item in adjacencyList.Keys)
             {
+                // we iterate the adjacencyLis and we take a list with all nodes, connected with the current node (item)
                 var listToPrint = adjacencyList[item];
                 if (listToPrint.Count != 0)
                     Console.WriteLine(item + " is connected to "+ string.Join(", ", listToPrint));
             }
+        }
+
+        public void RemoveNode(string label)
+        {
+            var node = nodes[label];
+            if (node == null)
+                return;
+
+            // first we go to the adjacencyList and for the every entry in it,
+            // to remove the node from it
+            foreach (var item in adjacencyList.Keys)            
+                adjacencyList[item].Remove(node);
+
+            //next we need to remove tne node from the adjacencyList and from the nodes
+            adjacencyList.Remove(node);
+            nodes.Remove(label);            
+        }
+
+        public void RemoveEdge(string from, string to)
+        {
+            var fromNode = nodes[from]; //the node in the nodes hash map
+            var toNode = nodes[to];
+            if (fromNode == null || toNode == null)
+                return;
+
+            adjacencyList[fromNode].Remove(toNode);
         }
     }
 }
