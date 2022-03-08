@@ -93,5 +93,92 @@ namespace GraphAlgorithmes
 
             adjacencyList[fromNode].Remove(toNode);
         }
+
+        public void TraverseDepthFirstRecursively(string root)
+        {
+            var node = nodes[root];
+            if (node == null)
+                return;
+
+            TraverseDepthFirstRecursively(nodes[root], new HashSet<Node>());
+        }
+
+        private void TraverseDepthFirstRecursively(Node root, HashSet<Node> visited)
+        {
+            Console.WriteLine(root);
+            visited.Add(root);  //we mark this node as visited
+
+            //we should recursively visit all the neighbours of this root
+            foreach (var node in adjacencyList[root])
+            {
+                if (!visited.Contains(node))
+                    TraverseDepthFirstRecursively(node, visited);
+            }            
+        }
+
+        public void TraverseDepthFirstIteratively(string root)
+        {
+            //using stack:
+            //push(root)
+            //while(stack is not empty)
+            //   current = pop()
+            //   visit(current)
+            //   push each unvisited nighbour onto the stack
+
+            var node = nodes[root];
+            if (node == null)
+                return;
+
+            HashSet<Node> visited = new HashSet<Node>();
+
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(node);
+
+            while (stack.Count != 0)
+            {
+                var current = stack.Pop();
+
+                if (visited.Contains(current))
+                    continue;
+
+                Console.WriteLine(current);
+                visited.Add(current);
+
+                foreach (var neighbour in adjacencyList[current])
+                {
+                    if (!visited.Contains(neighbour))
+                        stack.Push(neighbour);
+                }
+            }
+
+        }
+
+        public void TrverseBreadthFirst(string root)
+        {
+            var node = nodes[root];
+            if (node == null)
+                return;
+
+            HashSet<Node> visited = new HashSet<Node>();
+
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(node);
+
+            while (queue.Count() != 0)
+            {
+                var current = queue.Dequeue();
+                if (visited.Contains(current))
+                    continue;
+
+                Console.WriteLine(current);
+                visited.Add(current);
+
+                foreach (var neighbour in adjacencyList[current])
+                {
+                    if (!visited.Contains(neighbour))
+                        queue.Enqueue(neighbour);
+                }
+            }
+        }
     }
 }
