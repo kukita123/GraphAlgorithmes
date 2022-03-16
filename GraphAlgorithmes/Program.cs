@@ -28,24 +28,24 @@ namespace GraphAlgorithmes
             graph.RemoveNode("D");
             graph.Print();
 
-            MyGraph graphToTraverce = new MyGraph();
-            graphToTraverce.AddNode("A");
-            graphToTraverce.AddNode("B");
-            graphToTraverce.AddNode("C");
-            graphToTraverce.AddNode("D");
-            graphToTraverce.AddNode("E");
-            graphToTraverce.AddEdge("A", "B");
-            graphToTraverce.AddEdge("A", "E");
-            graphToTraverce.AddEdge("B", "B");
-            graphToTraverce.AddEdge("C", "B");
-            graphToTraverce.AddEdge("C", "A");
-            graphToTraverce.AddEdge("C", "D");
-            graphToTraverce.AddEdge("D", "E");
-            graphToTraverce.TraverseDepthFirstRecursively("C");
-            Console.WriteLine();
-            graphToTraverce.TraverseDepthFirstIteratively("C");
-            Console.WriteLine();
-            graphToTraverce.TrverseBreadthFirst("C");
+            //MyGraph graphToTraverce = new MyGraph();
+            //graphToTraverce.AddNode("A");
+            //graphToTraverce.AddNode("B");
+            //graphToTraverce.AddNode("C");
+            //graphToTraverce.AddNode("D");
+            //graphToTraverce.AddNode("E");
+            //graphToTraverce.AddEdge("A", "B");
+            //graphToTraverce.AddEdge("A", "E");
+            //graphToTraverce.AddEdge("B", "B");
+            //graphToTraverce.AddEdge("C", "B");
+            //graphToTraverce.AddEdge("C", "A");
+            //graphToTraverce.AddEdge("C", "D");
+            //graphToTraverce.AddEdge("D", "E");
+            //graphToTraverce.TraverseDepthFirstRecursively("C");
+            //Console.WriteLine();
+            //graphToTraverce.TraverseDepthFirstIteratively("C");
+            //Console.WriteLine();
+            //graphToTraverce.TrverseBreadthFirst("C");
 
             Console.ReadKey();
         }

@@ -11,12 +11,10 @@ namespace GraphAlgorithmes
         private class Node
         {
             public string Label { get; set; }
-
             public Node(string label)
             {
-                this.Label = label;
+                this.Label = label;            
             }
-
             override public string ToString()
             {
                 return Label;
@@ -41,11 +39,9 @@ namespace GraphAlgorithmes
 
             return;
         }
-
         public void AddEdge(string from, string to)
         {
             var fromNode = nodes[from]; //the node in the nodes hash map
-
             if (fromNode == null)
                 throw new Exception("Illegal Argument");
 
@@ -54,9 +50,8 @@ namespace GraphAlgorithmes
                 throw new Exception("Illegal Argument");
 
             adjacencyList[fromNode].Add(toNode);
-            // adjacencyList[toNode].Add(fromNode); //to create unoriented graph
+            //adjacencyList[toNode].Add(fromNode); //to create unoriented graph
         }
-
         public void Print()
         {
             foreach (var item in adjacencyList.Keys)
@@ -67,7 +62,6 @@ namespace GraphAlgorithmes
                     Console.WriteLine(item + " is connected to "+ string.Join(", ", listToPrint));
             }
         }
-
         public void RemoveNode(string label)
         {
             var node = nodes[label];
@@ -83,11 +77,11 @@ namespace GraphAlgorithmes
             adjacencyList.Remove(node);
             nodes.Remove(label);            
         }
-
         public void RemoveEdge(string from, string to)
         {
             var fromNode = nodes[from]; //the node in the nodes hash map
             var toNode = nodes[to];
+
             if (fromNode == null || toNode == null)
                 return;
 
@@ -102,7 +96,6 @@ namespace GraphAlgorithmes
 
             TraverseDepthFirstRecursively(nodes[root], new HashSet<Node>());
         }
-
         private void TraverseDepthFirstRecursively(Node root, HashSet<Node> visited)
         {
             Console.WriteLine(root);
@@ -115,7 +108,6 @@ namespace GraphAlgorithmes
                     TraverseDepthFirstRecursively(node, visited);
             }            
         }
-
         public void TraverseDepthFirstIteratively(string root)
         {
             //using stack:
@@ -150,9 +142,7 @@ namespace GraphAlgorithmes
                         stack.Push(neighbour);
                 }
             }
-
         }
-
         public void TrverseBreadthFirst(string root)
         {
             var node = nodes[root];
