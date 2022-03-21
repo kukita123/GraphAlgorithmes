@@ -45,7 +45,19 @@ namespace GraphAlgorithmes
             Console.WriteLine();
             graphToTraverce.TraverseDepthFirstIteratively("C");
             Console.WriteLine();
-            graphToTraverce.TrverseBreadthFirst("C");
+            graphToTraverce.TraverseBreadthFirst("C");
+
+            MyGraph graphToTopolSort = new MyGraph();
+            graphToTopolSort.AddNode("A");
+            graphToTopolSort.AddNode("B");
+            graphToTopolSort.AddNode("C");
+            graphToTopolSort.AddNode("D");
+            graphToTopolSort.AddEdge("A", "B");
+            graphToTopolSort.AddEdge("A", "C");
+            graphToTopolSort.AddEdge("B", "D");
+            graphToTopolSort.AddEdge("C", "D");
+            var list = graphToTopolSort.TopologicalSort();
+            Console.WriteLine(string.Join(", ", list));
 
             Console.ReadKey();
         }
