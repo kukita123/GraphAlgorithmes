@@ -37,7 +37,7 @@ namespace GraphAlgorithmes
                 nodes.Add(label, node);
 
             if (!adjacencyList.ContainsKey(node))
-                adjacencyList.Add(node, new List<Node>());
+                adjacencyList.Add(node, new List<Node>()); //empty Adjacency List for the edges from this node to every other node to connect with
 
             return;
         }
@@ -54,7 +54,7 @@ namespace GraphAlgorithmes
                 throw new Exception("Illegal Argument");
 
             adjacencyList[fromNode].Add(toNode);
-            // adjacencyList[toNode].Add(fromNode); //to create unoriented graph
+            // adjacencyList[toNode].Add(fromNode); //to create unoriented graph - we need to create an edge with the oposite direction
         }
 
         public void Print()
@@ -88,6 +88,7 @@ namespace GraphAlgorithmes
         {
             var fromNode = nodes[from]; //the node in the nodes hash map
             var toNode = nodes[to];
+
             if (fromNode == null || toNode == null)
                 return;
 
