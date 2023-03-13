@@ -143,7 +143,8 @@ namespace GraphAlgorithmes
                 }
             }
         }
-        public void TrverseBreadthFirst(string root)
+
+        public void TraverseBreadthFirst(string root)
         {
             var node = nodes[root];
             if (node == null)
@@ -169,6 +170,42 @@ namespace GraphAlgorithmes
                         queue.Enqueue(neighbour);
                 }
             }
+        }
+
+        public List<String>TopologicalSort()
+        {
+            Stack<Node> stack = new Stack<Node>();
+            HashSet<Node> visited = new HashSet<Node>
+();
+
+            foreach(var node in nodes.Values)
+            {
+                TopologicalSort(node, visited, stack);
+            }
+
+            List<string> TopologicalySorted = new List<string>();
+            while (stack.Count != 0)            
+                TopologicalySorted.Add(stack.Pop().Label);
+
+            return TopologicalySorted;
+            
+        }
+
+        private void TopologicalSort(Node node, HashSet<Node> visited, Stack<Node>stack)
+        {
+            if (visited.Contains(node))
+                return;
+
+            visited.Add(node);
+
+            foreach (var neighbour in adjacencyList[node])
+                TopologicalSort(neighbour, visited, stack);
+
+            stack.Push(node);
+            {
+
+            }
+
         }
     }
 }
