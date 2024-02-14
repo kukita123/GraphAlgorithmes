@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1705
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAlgorithmes", "GraphAlgorithmes\GraphAlgorithmes.csproj", "{A8664643-60AD-4382-8523-DDFC12A00814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathDijkstraAlgo", "PathDejkstraAlgo\PathDijkstraAlgo.csproj", "{89619157-AA24-4588-AE41-B96749E9B503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra-Algo-Integrated-Priority-Queue", "Dijkstra-Algo-Integrated-Priority-Queue\Dijkstra-Algo-Integrated-Priority-Queue.csproj", "{F5F38F9F-72A0-4B76-8971-ED374DC1BCBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{A8664643-60AD-4382-8523-DDFC12A00814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8664643-60AD-4382-8523-DDFC12A00814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8664643-60AD-4382-8523-DDFC12A00814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89619157-AA24-4588-AE41-B96749E9B503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89619157-AA24-4588-AE41-B96749E9B503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89619157-AA24-4588-AE41-B96749E9B503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89619157-AA24-4588-AE41-B96749E9B503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F38F9F-72A0-4B76-8971-ED374DC1BCBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F38F9F-72A0-4B76-8971-ED374DC1BCBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F38F9F-72A0-4B76-8971-ED374DC1BCBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F38F9F-72A0-4B76-8971-ED374DC1BCBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
